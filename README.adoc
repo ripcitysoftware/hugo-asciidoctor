@@ -1,0 +1,13 @@
+= README
+
+== Getting started
+
+We needed a docker image that included hugo, asciidoctor so I created one.
+
+Here is a helper script to build the same docker image and then to run the image to see if it's configured correctly.
+
+== Commands
+
+`build-docker.sh`:: Create a docker image
+
+`run-docker.sh`:: runs a docker container that expects a `hugo` directory, the container name is `cm-hugo`

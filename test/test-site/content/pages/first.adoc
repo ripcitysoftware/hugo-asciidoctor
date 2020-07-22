@@ -1,0 +1,73 @@
+---
+title: "First"
+date: 2020-04-07T12:56:18-07:00
+draft: true
+---
+:source-highlighter: highlightjs
+:icons: font
+
+== Title
+
+Welcome to the first page of the rest of your site!
+
+This is an example doc.
+
+[source,bash,linenums]
+----
+$ terraform output
+
+passwords = {
+  "example-user" = "wcBMA6UIWFRg9h6ZAQgAMKWYzfpsUZPqi9F..."
+}
+----
+
+[source,bash,linenums]
+----
+$ gpg -k # <1>
+$ export TF_VAR_pgp_key=$(gpg --export << your email >> | base64) # <2>
+$ export TF_VAR_pgp_key=$(gpg --export chris.maki@ripcitysoftware.com | base64) # <3>
+----
+<1> List any `gpg` keys you may already have
+<2> you'll want to use one of the emails listed by `gpg -k`
+<3> This is how I create my base64 encoded pgp key
+
+NOTE: This is a note
+
+And here is some more text
+
+TIP: This is a tip!
+
+[source,java,linenums]
+----
+package com.ripcitysoftware.aws;
+
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.ObjectListing;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class S3StorageService {
+
+  AmazonS3 s3;
+
+  public void init() {
+    s3  = AmazonS3ClientBuilder.standard().build(); // <1>
+  }
+
+  public List<String> listFiles() {
+    List<S3ObjectSummary> summaries = null;
+    String bucketName = "ripcitysoftware";
+
+    try {
+      ObjectListing objectListing = s3.listObjects(bucketName);
+      summaries = objectListing.getObjectSummaries();
+    } catch(Exception e) {
+      throw new StorageException("Failed to list objects for buckert",e);
+    }
+
+    return summaries.stream().map(S3ObjectSummary::getKey).collect(Collectors.toList());
+  }
+}
+----

@@ -1,0 +1,7 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "ananke"
+
+[params]
+   custom_css = ["css/asciidoctor.css", "css/dracula.css", "css/custom.css"]
