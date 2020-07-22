@@ -1,4 +1,4 @@
-FROM asciidoctor/docker-asciidoctor
+FROM asciidoctor/docker-asciidoctor:latest
 MAINTAINER chris.maki@ripcitysoftware.com
 
 # Create working directory
