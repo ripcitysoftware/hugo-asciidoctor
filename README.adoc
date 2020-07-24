@@ -11,3 +11,8 @@ Here is a helper script to build the same docker image and then to run the image
 `build-docker.sh`:: Create a docker image
 
 `run-docker.sh`:: runs a docker container that expects a `hugo` directory, the container name is `cm-hugo`
+
+== Hugo Extended
+
+. https://github.com/peaceiris/hugo-extended-docker
+. https://github.com/trenton42/hugo-extended-docker/blob/master/Dockerfile[Debian image]
